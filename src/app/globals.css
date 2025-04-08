@@ -30,7 +30,7 @@ body {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -39,7 +39,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -61,22 +61,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Custom Animations */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -88,8 +72,37 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Custom Classes */
 .animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s ease-out forwards;
 }
 
 /* Glass Effect */
@@ -106,11 +119,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 transition-colors;
+  @apply bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors duration-200;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-white/10 transition-colors;
+  @apply bg-white text-blue-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors duration-200;
 }
 
 /* Card Hover Effects */
@@ -234,11 +247,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Custom Components */
 @layer components {
   .card {
-    @apply bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300;
+    @apply bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300;
   }
   
   .section-title {
-    @apply text-3xl font-bold text-gray-900 mb-12 text-center;
+    @apply text-3xl sm:text-4xl font-bold text-gray-900 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-gray-600 max-w-3xl mx-auto;
   }
 }
 
@@ -247,11 +264,6 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.animate-fade-in {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* Custom styles for the hero section */
@@ -468,4 +480,71 @@ h1, h2, h3, h4, h5, h6 {
 
 .update-link {
   @apply text-amber-600 hover:text-amber-700 font-medium;
+}
+
+/* Custom styles for the section padding */
+.section-padding {
+  @apply py-20;
+}
+
+/* Custom styles for the container */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Custom styles for the image cover */
+.img-cover {
+  @apply w-full h-full object-cover;
+}
+
+/* Custom styles for the text gradient */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800;
+}
+
+/* Custom styles for the hover lift */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+/* Custom styles for the hover scale */
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+/* Custom styles for responsive typography */
+@screen sm {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+}
+
+@screen md {
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply text-4xl;
+  }
+  h3 {
+    @apply text-3xl;
+  }
+}
+
+@screen lg {
+  h1 {
+    @apply text-6xl;
+  }
+  h2 {
+    @apply text-5xl;
+  }
+  h3 {
+    @apply text-4xl;
+  }
 } 
