@@ -32,8 +32,10 @@ export default function Footer() {
   });
 
   return (
-    <footer className="bg-primary text-white">
-      <div className="container mx-auto px-4">
+    <footer className="bg-primary text-white relative">
+      {/* White overlay */}
+      <div className="absolute inset-0 bg-white opacity-20 pointer-events-none"></div>
+      <div className="container mx-auto px-4 relative z-10">
         {/* Main footer content */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1: About */}

@@ -7,7 +7,6 @@ import { FaArrowRight, FaQuoteLeft, FaCheck, FaPhone } from 'react-icons/fa';
 import { BsArrowRight } from 'react-icons/bs';
 import { useInView } from 'react-intersection-observer';
 import Hero from '@/components/Hero';
-import Navigation from '@/components/Navigation';
 
 // Animation components
 interface FadeInProps {
@@ -104,7 +103,6 @@ const ParallaxImage: React.FC<ParallaxImageProps> = ({
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Navigation />
       <Hero />
       
       {/* Services Section */}

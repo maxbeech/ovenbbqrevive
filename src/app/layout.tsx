@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import Header from '@/components/layout/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -56,19 +57,23 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
+        <Header />
         <main>
           {children}
         </main>
         <footer className="bg-gray-900 text-white">
           <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center mb-12">
-              <Image
-                src="/media/logo.png"
-                alt="Oven BBQ Revive Logo"
-                width={100}
-                height={100}
-                className="w-auto h-20 mb-6"
-              />
+              <div className="relative w-auto h-20 mb-6">
+                <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-full"></div>
+                <Image
+                  src="/media/logo.png"
+                  alt="Oven BBQ Revive Logo"
+                  width={100}
+                  height={100}
+                  className="w-auto h-20 relative z-10"
+                />
+              </div>
               <h2 className="text-3xl font-bold text-[#fb5a25] mb-4">Oven BBQ Revive</h2>
               <p className="text-gray-400 text-center max-w-2xl">
                 Professional, eco-friendly cleaning services for your oven, BBQ, and kitchen appliances. We bring your appliances back to life with quality cleaning services in Surrey and surrounding areas.
@@ -83,17 +88,17 @@ export default function RootLayout({
               <div>
                 <h3 className="text-lg font-semibold mb-4 text-[#fb5a25]">Services</h3>
                 <ul className="space-y-2">
-                  <li><Link href="/services/oven-cleaning" className="text-gray-400 hover:text-[#fb5a25] transition-colors">Oven Cleaning</Link></li>
-                  <li><Link href="/services/bbq-cleaning" className="text-gray-400 hover:text-[#fb5a25] transition-colors">BBQ Cleaning</Link></li>
-                  <li><Link href="/services/hob-cleaning" className="text-gray-400 hover:text-[#fb5a25] transition-colors">Hob & Extractor Cleaning</Link></li>
+                  <li><Link href="/oven-cleaning" className="text-gray-400 hover:text-[#fb5a25] transition-colors">Oven Cleaning</Link></li>
+                  <li><Link href="/bbq-cleaning" className="text-gray-400 hover:text-[#fb5a25] transition-colors">BBQ Cleaning</Link></li>
+                  <li><Link href="/hob-extractor-cleaning" className="text-gray-400 hover:text-[#fb5a25] transition-colors">Hob & Extractor Cleaning</Link></li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-lg font-semibold mb-4 text-[#fb5a25]">Company</h3>
                 <ul className="space-y-2">
                   <li><Link href="/about" className="text-gray-400 hover:text-[#fb5a25] transition-colors">About Us</Link></li>
-                  <li><Link href="/blog" className="text-gray-400 hover:text-[#fb5a25] transition-colors">Blog</Link></li>
-                  <li><Link href="/testimonials" className="text-gray-400 hover:text-[#fb5a25] transition-colors">Testimonials</Link></li>
+                  <li><Link href="/pricing" className="text-gray-400 hover:text-[#fb5a25] transition-colors">Pricing</Link></li>
+                  <li><Link href="/contact" className="text-gray-400 hover:text-[#fb5a25] transition-colors">Contact</Link></li>
                 </ul>
               </div>
               <div>
